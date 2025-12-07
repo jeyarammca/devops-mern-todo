@@ -7,7 +7,7 @@ on:
 jobs:
   mongo-init:
     runs-on: ubuntu-latest
-
+    
     services:
       mongo:
         image: mongo
@@ -40,6 +40,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: mongo-init
+
+    env:
+       PORT: ${{ secrets.PORT }}
+       MONGO_URI: ${{ secrets.MONGO_URI }}
+       JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
     steps:
       - name: Checkout Repository

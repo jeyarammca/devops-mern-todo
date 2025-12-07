@@ -1,7 +1,7 @@
 name: MERN CD
 
 on:
-  push: 
+  push:
     branches: [main]
 
 jobs:
@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH Keys
+      - name: Deploy via SSH
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
+          username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
           script: |
             cd devops-mern-todo/
             git pull origin main

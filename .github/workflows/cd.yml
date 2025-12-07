@@ -15,8 +15,8 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: | 
-           cd devops-mern-todo/ 
-           git pull origin main
-           docker-compose down
-           docker-compose up --build -d
+          script: |
+            cd devops-mern-todo/
+            git pull origin main
+            docker-compose down
+            docker-compose up --build -d

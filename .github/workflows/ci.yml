@@ -36,7 +36,7 @@ jobs:
         run: |
           ls -R
           npm install
-          node seedTaskData.js
+          node seedTasksData.js
 
   test:
     runs-on: ubuntu-latest

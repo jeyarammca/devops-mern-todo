@@ -33,6 +33,7 @@ jobs:
 
       - name: Seed mongoDB
         working-directory: ./backend
+        run: ls -R
         run: |
           npm install
           node seedTaskData.js
